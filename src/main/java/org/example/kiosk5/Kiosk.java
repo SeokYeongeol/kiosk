@@ -7,9 +7,7 @@ public class Kiosk {
     private static final String NUMBER_REG = "^[0-9]*$";
     private Menu menu;
 
-    public Kiosk(Menu menu) {
-        this.menu = menu;
-    }
+    public Kiosk(Menu menu) { this.menu = menu; }
 
     public void start() {
         Scanner sc = new Scanner(System.in);
@@ -27,8 +25,9 @@ public class Kiosk {
 
             else if(selectFoods.equals("1")) {
                 System.out.println( "\n[ SHAKESHACK MENU ]");
-                menu.lookUpMenuList();
+                menu.lookUpMenuList();                          // 메뉴 리스트를 보여주는 메서드
                 System.out.println("0. 이전     | 이전 페이지");
+                
                 System.out.print("입력 : ");
                 String selectMenu = sc.next();
 
@@ -36,7 +35,7 @@ public class Kiosk {
 
                 try {
                     if(!Pattern.matches(NUMBER_REG, selectMenu) || Integer.parseInt(selectMenu) > menu.getMenuItemList().size()) throw new IOException("잘못된 값을 입력하였습니다. \n");
-                    menu.lookUpMenu(selectMenu);
+                    menu.lookUpMenu(selectMenu);        // 선택한 메뉴를 보여주는 메서드
                 } catch(IOException e) {
                     System.out.println(e.getMessage());
                 }
