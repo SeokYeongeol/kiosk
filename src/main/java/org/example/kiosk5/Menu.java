@@ -1,6 +1,7 @@
 package org.example.kiosk5;
 
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Menu {
     private List<MenuItem> menuItemList = new ArrayList<>();

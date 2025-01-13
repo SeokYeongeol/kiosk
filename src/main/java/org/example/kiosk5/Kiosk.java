@@ -1,6 +1,7 @@
 package org.example.kiosk5;
+
 import java.io.IOException;
-import java.util.*;
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Kiosk {
