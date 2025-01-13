@@ -35,7 +35,7 @@ public class Kiosk {
                 if(selectMenu.equals("0")) continue;
 
                 try {
-                    if(!Pattern.matches(NUMBER_REG, selectMenu) || Integer.parseInt(selectMenu) > menu.getMenuItemList().size()) throw new IOException("잘못된 값을 입력하였습니다. \n");
+                    if(!Pattern.matches(NUMBER_REG, selectMenu) || Integer.parseInt(selectMenu) > menu.getMenuItemList().size()) throw new IOException("잘못된 값을 입력하였습니다.");
                     menu.lookUpMenu(selectMenu);        // 선택한 메뉴를 보여주는 메서드
                 } catch(IOException e) {
                     System.out.println(e.getMessage());
