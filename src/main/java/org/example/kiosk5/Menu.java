@@ -14,7 +14,7 @@ public class Menu {
 
     public void lookUpMenuList() {      // 메뉴 리스트 조회
         for(int i = 0; i < getMenuItemList().size(); i++) {
-            System.out.println(i+1 + ". " + getMenuItemList().get(i).getName() + "   | W " + getMenuItemList().get(i).getPrice() + " | " + getMenuItemList().get(i).getDesc());
+            System.out.println((i+1) + ". " + getMenuItemList().get(i).getName() + "   | W " + getMenuItemList().get(i).getPrice() + " | " + getMenuItemList().get(i).getDesc());
         }
     }
 
