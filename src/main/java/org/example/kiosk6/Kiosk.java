@@ -105,7 +105,16 @@ public class Kiosk {
                 }
                 else if(order.equals("2")) {}
                 else System.out.println("잘못된 값을 입력하였습니다.");
-            }
+
+            } else if(selectFoods.equals("5")) {
+                if(shoppingCart.getShoppingCart().isEmpty()) {
+                    System.out.println("쇼핑 카트가 비어있습니다.");
+                    continue;
+                }
+                System.out.println("진행중인 주문을 취소합니다...");
+                shoppingCart.clearShoppingCart();
+
+            } else System.out.println("잘못된 값을 입력하였습니다.");
         }
         System.out.println("프로그램을 종료합니다.");
     }
