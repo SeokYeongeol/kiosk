@@ -29,4 +29,8 @@ public class ShoppingCart {
     public double getShoppingPrice() {
         return getShoppingCart().stream().mapToDouble(MenuItem::getPrice).sum();
     }
+
+    public void clearShoppingCart() {
+        getShoppingCart().clear();
+    }
 }
