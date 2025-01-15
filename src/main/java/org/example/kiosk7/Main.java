@@ -15,7 +15,7 @@ public class Main {
         menu.setDrinkItemList(new MenuItem("Beer", 4.7, "시원한 탄산의 맥주"));
         
         menu.setDessertItemList(new MenuItem("Ice-Cream", 1.2, "달콤한 소프트 아이스크림"));
-        menu.setDessertItemList((new MenuItem("Whole Cake", 12.6, "달콤하고 맛있는 딸기 케이크")));
+        menu.setDessertItemList((new MenuItem("WholeCake", 12.6, "달콤하고 맛있는 딸기 케이크")));
 
         Kiosk kiosk = new Kiosk(menu, shoppingCart);
         kiosk.start();

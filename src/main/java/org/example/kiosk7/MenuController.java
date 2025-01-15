@@ -100,7 +100,7 @@ public class MenuController<T extends MenuItemInterface> {
         System.out.println("\n어떤 메뉴를 취소하시겠습니까 ?");
         shoppingCart.ordersShoppingCart();      // 쇼핑 카트 목록 열람
         System.out.print("입력 : ");
-        String deleteMenu = sc.nextLine();
+        String deleteMenu = sc.next();
         boolean deleteCheck = shoppingCart.deleteMenuSelect(deleteMenu);
 
         if(deleteCheck) System.out.println(deleteMenu + " (이)가 삭제되었습니다.");
