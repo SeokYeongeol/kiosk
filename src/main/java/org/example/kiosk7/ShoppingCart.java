@@ -35,7 +35,10 @@ public class ShoppingCart<T extends MenuItemInterface> {
     
     // 쇼핑 카트에 담긴 메뉴 중 삭제할 이름 지정 후 삭제
     public boolean deleteMenuSelect(String value) {
-        return getShoppingCart().removeIf(f -> f.getName().contains(value));
+       return getShoppingCart().stream().filter(f -> f.getName().contains(value))
+               .findFirst()
+               .map(item -> getShoppingCart().remove(item))
+               .orElse(false);
     }
 
 
