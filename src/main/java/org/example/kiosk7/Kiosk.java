@@ -6,11 +6,11 @@ import java.util.regex.Pattern;
 public class Kiosk {
     public static final String NUMBER_REG = "^[0-9]*$";
     public static final String SALE_NUMBER_REG = "^[1-4]$";
-    private Menu<MenuItem> menu;
-    private ShoppingCart<MenuItem> shoppingCart;
-    private MenuController<MenuItem> menuController;
+    private Menu<MenuItemInterface> menu;
+    private ShoppingCart<MenuItemInterface> shoppingCart;
+    private MenuController<MenuItemInterface> menuController;
 
-    public Kiosk(Menu<MenuItem> menu, ShoppingCart<MenuItem> shoppingCart) {
+    public Kiosk(Menu<MenuItemInterface> menu, ShoppingCart<MenuItemInterface> shoppingCart) {
         this.menu = menu;
         this.shoppingCart = shoppingCart;
     }

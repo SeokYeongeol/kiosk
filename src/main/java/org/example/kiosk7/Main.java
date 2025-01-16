@@ -2,8 +2,8 @@ package org.example.kiosk7;
 
 public class Main {
     public static void main(String[] args) {
-        Menu<MenuItem> menu = new Menu();
-        ShoppingCart<MenuItem> shoppingCart = new ShoppingCart();
+        Menu<MenuItemInterface> menu = new Menu();
+        ShoppingCart<MenuItemInterface> shoppingCart = new ShoppingCart();
 
         menu.setBurgerItemList(new MenuItem("ShackBurger", 6.9, "토마토, 양상추, 쉑소스가 토핑된 치즈버거"));
         menu.setBurgerItemList(new MenuItem("SmokeShack", 8.9, "베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거"));
