@@ -5,10 +5,13 @@ public class MenuItem implements MenuItemInterface {
     private double price;
     private String desc;
 
+    @Override
     public String getName() { return name; }
 
+    @Override
     public double getPrice() { return price; }
 
+    @Override
     public String getDesc() { return desc; }
 
     public MenuItem(String name, double price, String desc) {
