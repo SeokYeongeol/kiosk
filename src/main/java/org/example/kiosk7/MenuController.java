@@ -16,6 +16,7 @@ public class MenuController<T extends MenuItemInterface> {
         this.selectFoods = selectFoods;
     }
 
+    /* 번호마다 다른 리스트를 가져오는 메서드 */
     public List<T> getMenuList() {
         List<T> list = new ArrayList<>();
         if(this.selectFoods.equals("1")) list = menu.getBurgerItemList();
@@ -27,7 +28,7 @@ public class MenuController<T extends MenuItemInterface> {
 
     public T getMenuItem(int index) { return getMenuList().get(index); }
 
-
+    /* 메뉴 리스트를 보여주는 메서드 */
     public void lookUpMenuList() {      // 메뉴 리스트 조회
         final int[] index = {1};
         getMenuList().stream().forEach(f -> {
@@ -37,8 +38,9 @@ public class MenuController<T extends MenuItemInterface> {
         System.out.println("0. 이전     | 이전 페이지");
         System.out.print("입력 : ");
     }
-
-    public void lookUpMenu(String value) {      // 선택한 메뉴 조회
+    
+    /* 선택한 메뉴를 보여주는 메서드 */
+    public void lookUpMenu(String value) {
         System.out.println("선택한 메뉴 : " + getMenuItem(Integer.parseInt(value)-1).getName() + "   | W " +
                 getMenuItem(Integer.parseInt(value)-1).getPrice() + " | " + getMenuItem(Integer.parseInt(value)-1).getDesc());
         System.out.println("\n위 메뉴를 장바구니에 추가하시겠습니까?");
