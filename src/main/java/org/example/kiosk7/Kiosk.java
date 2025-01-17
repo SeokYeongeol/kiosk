@@ -1,7 +1,6 @@
 package org.example.kiosk7;
 
 import java.util.Scanner;
-import java.util.regex.Pattern;
 
 public class Kiosk {
     public static final String NUMBER_REG = "^[0-9]*$";
