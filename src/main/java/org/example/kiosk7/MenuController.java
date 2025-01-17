@@ -10,14 +10,17 @@ public class MenuController<T extends MenuItemInterface> {
     private String selectFoods;
     private Scanner sc = new Scanner(System.in);
 
-    public MenuController(Menu<T> menu, ShoppingCart<T> shoppingCart, String selectFoods) {
+    public MenuController(Menu<T> menu, ShoppingCart<T> shoppingCart) {
         this.menu = menu;
         this.shoppingCart = shoppingCart;
+    }
+
+    public void setSelectFoods(String selectFoods) {
         this.selectFoods = selectFoods;
     }
 
     /* 번호마다 다른 리스트를 가져오는 메서드 */
-    public List<T> getMenuList() {
+    private List<T> getMenuList() {
         List<T> list = new ArrayList<>();
         if(this.selectFoods.equals("1")) list = menu.getBurgerItemList();
         else if(this.selectFoods.equals("2")) list = menu.getDrinkItemList();
@@ -26,21 +29,20 @@ public class MenuController<T extends MenuItemInterface> {
         return list;
     }
 
-    public T getMenuItem(int index) { return getMenuList().get(index); }
+    private T getMenuItem(int index) { return getMenuList().get(index); }
 
     /* 메뉴 리스트를 보여주는 메서드 */
-    public void lookUpMenuList() {      // 메뉴 리스트 조회
+    private void lookUpMenuList() {      // 메뉴 리스트 조회
         final int[] index = {1};
         getMenuList().stream().forEach(f -> {
             System.out.println(index[0] + ". " + f.getName() + "   | W " + f.getPrice() + " | " + f.getDesc());
             index[0]++;
         });
-        System.out.println("0. 이전     | 이전 페이지");
-        System.out.print("입력 : ");
+        System.out.print("\n입력 : ");
     }
     
     /* 선택한 메뉴를 보여주는 메서드 */
-    public void lookUpMenu(String value) {
+    private void lookUpMenu(String value) {
         System.out.println("선택한 메뉴 : " + getMenuItem(Integer.parseInt(value)-1).getName() + "   | W " +
                 getMenuItem(Integer.parseInt(value)-1).getPrice() + " | " + getMenuItem(Integer.parseInt(value)-1).getDesc());
         System.out.println("\n위 메뉴를 장바구니에 추가하시겠습니까?");
@@ -49,7 +51,7 @@ public class MenuController<T extends MenuItemInterface> {
     }
 
     /* 선택된 숫자에 따라 메뉴를 보여주는 메서드 */
-    public void menuController() throws BadInputException {
+    public void menuController() {
         System.out.println( "\n[ SHAKESHACK MENU ]");
         lookUpMenuList();                          // 메뉴 리스트를 보여주는 메서드
 
@@ -76,7 +78,7 @@ public class MenuController<T extends MenuItemInterface> {
         System.out.println("\n[ ORDERS ]");
         shoppingCart.ordersShoppingCart();      // 쇼핑 카트 목록 열람
         System.out.println("\n[ TOTAL ]");
-        System.out.println("W " + shoppingCart.getShoppingPrice());
+        System.out.printf("W %.1f\n", shoppingCart.getShoppingPrice());
         System.out.println("\n1. 주문      2. 메뉴판");
         System.out.print("입력 : ");
         String order = sc.next();
@@ -93,7 +95,7 @@ public class MenuController<T extends MenuItemInterface> {
             } catch(BadInputException e) {
                 System.out.println(e.getMessage());
             }
-        } else if(order.equals("2")) {}
+        } else if(order.equals("2")) System.out.println("메뉴판으로 이동합니다.");
         else System.out.println("잘못된 값을 입력하였습니다.");
     }
     

@@ -15,8 +15,9 @@ public class Kiosk {
         this.shoppingCart = shoppingCart;
     }
 
-    public void start() throws BadInputException {
+    public void start() {
         Scanner sc = new Scanner(System.in);
+        menuController = new MenuController<>(menu, shoppingCart);
 
         while(true) {
             menu.mainMenuController();
@@ -27,6 +28,8 @@ public class Kiosk {
 
             System.out.print("입력 : ");
             String selectFoods = sc.next();
+            menuController.setSelectFoods(selectFoods);
+
             switch(selectFoods) {
                 case "0":
                     break;
@@ -34,7 +37,6 @@ public class Kiosk {
                 case "1":
                 case "2":
                 case "3":
-                    menuController = new MenuController<>(menu, shoppingCart, selectFoods);
                     menuController.menuController();
                     continue;
 
